@@ -1,12 +1,15 @@
 package com.aluracursos.challengeone_forohub.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 // Clase para hacer la persistencia de datos en la base de datos
 @Entity
@@ -21,7 +24,8 @@ public class Topico {
     private Long id;
     private String titulo;
     private String mensaje;
-    //private LocalDate fechaCreacion;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd HH:mm:ss")
+    private LocalDateTime fechaCreacion;
     private String status;
     private Integer autor;
     private Integer curso;
@@ -30,7 +34,7 @@ public class Topico {
     public Topico(DatosTopico datos) {
         this.titulo = datos.titulo();
         this.mensaje = datos.mensaje();
-        //this.fechaCreacion = LocalDate.parse(datos.fechaCreacion());
+        this.fechaCreacion = LocalDateTime.parse(datos.fechaCreacion(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
         this.status = datos.status();
         this.autor = datos.autor();
         this.curso = datos.curso();

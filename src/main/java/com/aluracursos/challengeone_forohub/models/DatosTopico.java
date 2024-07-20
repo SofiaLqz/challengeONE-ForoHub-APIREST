@@ -2,6 +2,7 @@ package com.aluracursos.challengeone_forohub.models;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 // Record para recibir los datos
 public record DatosTopico(
@@ -12,9 +13,9 @@ public record DatosTopico(
         @JsonAlias("fecha_creacion") String fechaCreacion,
         @NotBlank
         String status,
-        @NotBlank
+        @NotNull
         Integer autor,
-        @NotBlank
+        @NotNull
         Integer curso
 ) {
 }
