@@ -6,6 +6,9 @@ import com.aluracursos.challengeone_forohub.models.Topico;
 import com.aluracursos.challengeone_forohub.repository.ITopicoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +25,7 @@ public class TopicoController {
         System.out.println(datos);
     }
     @GetMapping
-    public List<DatosMuestraTopicos> mostarTopicos(){
-        return topicoRepository.findAll().stream().map(DatosMuestraTopicos::new).toList();
+    public Page<DatosMuestraTopicos> mostarTopicos(@PageableDefault(size=2) Pageable paginacion){
+        return topicoRepository.findAll(paginacion).map(DatosMuestraTopicos::new);
     }
 }
