@@ -24,4 +24,8 @@ public class TopicoController {
     public Page<DatosMuestraTopicos> mostarTopicos(@PageableDefault(size=2) Pageable paginacion){
         return topicoservicio.mostarTopicos(paginacion);
     }
+    @GetMapping("/{id}")
+    public DatosMuestraTopicos obtenerTopico(@PathVariable Long id){
+        return topicoservicio.obtenerTopico(id);
+    }
 }
