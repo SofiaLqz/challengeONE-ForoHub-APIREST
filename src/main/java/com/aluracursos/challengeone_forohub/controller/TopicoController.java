@@ -1,8 +1,10 @@
 package com.aluracursos.challengeone_forohub.controller;
 
+import com.aluracursos.challengeone_forohub.dto.DatosActualizaTopico;
 import com.aluracursos.challengeone_forohub.dto.DatosMuestraTopicos;
 import com.aluracursos.challengeone_forohub.dto.DatosTopico;
 import com.aluracursos.challengeone_forohub.service.TopicoService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,11 +23,16 @@ public class TopicoController {
         topicoservicio.registrarTopico(datos);
     }
     @GetMapping
-    public Page<DatosMuestraTopicos> mostarTopicos(@PageableDefault(size=2) Pageable paginacion){
-        return topicoservicio.mostarTopicos(paginacion);
+    public Page<DatosMuestraTopicos> mostrarTopicos(@PageableDefault(size=2) Pageable paginacion){
+        return topicoservicio.mostrarTopicos(paginacion);
     }
     @GetMapping("/{id}")
     public DatosMuestraTopicos obtenerTopico(@PathVariable Long id){
         return topicoservicio.obtenerTopico(id);
+    }
+    @PutMapping()
+    @Transactional
+    public void actualizarTopico(@RequestBody @Valid DatosActualizaTopico datos){
+        topicoservicio.actualizarTopico(datos);
     }
 }

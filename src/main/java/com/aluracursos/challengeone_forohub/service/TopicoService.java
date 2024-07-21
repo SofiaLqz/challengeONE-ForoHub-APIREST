@@ -1,5 +1,6 @@
 package com.aluracursos.challengeone_forohub.service;
 
+import com.aluracursos.challengeone_forohub.dto.DatosActualizaTopico;
 import com.aluracursos.challengeone_forohub.dto.DatosMuestraTopicos;
 import com.aluracursos.challengeone_forohub.dto.DatosTopico;
 import com.aluracursos.challengeone_forohub.models.Topico;
@@ -20,9 +21,10 @@ public class TopicoService {
 
     @PostMapping
     public void registrarTopico(DatosTopico datos){
+        topicoRepository.save(new Topico(datos));
     }
     @GetMapping
-    public Page<DatosMuestraTopicos> mostarTopicos(Pageable paginacion){
+    public Page<DatosMuestraTopicos> mostrarTopicos(Pageable paginacion){
         return topicoRepository.findAll(paginacion).map(DatosMuestraTopicos::new);
     }
 
@@ -33,5 +35,10 @@ public class TopicoService {
             return new DatosMuestraTopicos(topicoObtenido);
         }
         return null;
+    }
+
+    public void actualizarTopico(DatosActualizaTopico datos){
+        Topico topico = topicoRepository.getReferenceById(datos.id());
+        topico.actualizarDatos(datos);
     }
 }

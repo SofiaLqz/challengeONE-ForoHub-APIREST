@@ -1,5 +1,6 @@
 package com.aluracursos.challengeone_forohub.models;
 
+import com.aluracursos.challengeone_forohub.dto.DatosActualizaTopico;
 import com.aluracursos.challengeone_forohub.dto.DatosTopico;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -38,5 +39,17 @@ public class Topico {
         this.status = datos.status();
         this.autor = datos.autor();
         this.curso = datos.curso();
+    }
+
+    public void actualizarDatos(DatosActualizaTopico datos){
+        if (datos.titulo() != null) {
+            this.titulo = datos.titulo();
+        }
+        if (datos.mensaje() != null) {
+            this.mensaje = datos.mensaje();
+        }
+        if (datos.fechaCreacion() != null) {
+            this.fechaCreacion = LocalDateTime.parse(datos.fechaCreacion(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+        }
     }
 }
