@@ -1,7 +1,7 @@
 package com.aluracursos.challengeone_forohub.service;
 
-import com.aluracursos.challengeone_forohub.models.DatosMuestraTopicos;
-import com.aluracursos.challengeone_forohub.models.DatosTopico;
+import com.aluracursos.challengeone_forohub.dto.DatosMuestraTopicos;
+import com.aluracursos.challengeone_forohub.dto.DatosTopico;
 import com.aluracursos.challengeone_forohub.models.Topico;
 import com.aluracursos.challengeone_forohub.repository.ITopicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

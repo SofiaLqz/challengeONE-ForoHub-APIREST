@@ -1,5 +1,6 @@
-package com.aluracursos.challengeone_forohub.models;
+package com.aluracursos.challengeone_forohub.dto;
 
+import com.aluracursos.challengeone_forohub.models.Topico;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;

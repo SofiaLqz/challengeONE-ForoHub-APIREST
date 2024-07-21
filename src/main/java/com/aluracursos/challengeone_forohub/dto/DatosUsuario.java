@@ -1,4 +1,4 @@
-package com.aluracursos.challengeone_forohub.models;
+package com.aluracursos.challengeone_forohub.dto;
 
 public record DatosUsuario(
         Long id,

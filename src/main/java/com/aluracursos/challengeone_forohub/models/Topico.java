@@ -1,5 +1,6 @@
 package com.aluracursos.challengeone_forohub.models;
 
+import com.aluracursos.challengeone_forohub.dto.DatosTopico;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Optional;
 
 // Clase para hacer la persistencia de datos en la base de datos
 @Entity

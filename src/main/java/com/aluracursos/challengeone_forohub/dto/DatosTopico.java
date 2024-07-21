@@ -1,4 +1,4 @@
-package com.aluracursos.challengeone_forohub.models;
+package com.aluracursos.challengeone_forohub.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotBlank;
