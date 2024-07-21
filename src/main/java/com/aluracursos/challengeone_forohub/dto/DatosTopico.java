@@ -10,6 +10,7 @@ public record DatosTopico(
         String titulo,
         @NotBlank
         String mensaje,
+        @NotBlank
         @JsonAlias("fecha_creacion") String fechaCreacion,
         @NotBlank
         String status,
