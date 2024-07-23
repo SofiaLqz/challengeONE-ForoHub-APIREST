@@ -37,8 +37,18 @@ public class TopicoService {
         return null;
     }
 
-    public void actualizarTopico(DatosActualizaTopico datos){
-        Topico topico = topicoRepository.getReferenceById(datos.id());
-        topico.actualizarDatos(datos);
+    public void actualizarTopico(Long id, DatosActualizaTopico datos){
+        Optional<Topico> topico = topicoRepository.findById(id);
+        if (topico.isPresent()) {
+            Topico topicoObtenido = topico.get();
+            topicoObtenido.actualizarDatos(datos);
+        }
+    }
+
+    public void eliminarTopico(Long id) {
+        Optional<Topico> topico = topicoRepository.findById(id);
+        if (topico.isPresent()){
+            topicoRepository.deleteById(id);
+        }
     }
 }

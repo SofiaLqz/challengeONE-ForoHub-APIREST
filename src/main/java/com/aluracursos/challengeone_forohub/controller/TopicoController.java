@@ -30,9 +30,14 @@ public class TopicoController {
     public DatosMuestraTopicos obtenerTopico(@PathVariable Long id){
         return topicoservicio.obtenerTopico(id);
     }
-    @PutMapping()
+    @PutMapping("/{id}")
     @Transactional
-    public void actualizarTopico(@RequestBody @Valid DatosActualizaTopico datos){
-        topicoservicio.actualizarTopico(datos);
+    public void actualizarTopico(@PathVariable Long id, @RequestBody @Valid DatosActualizaTopico datos){
+        topicoservicio.actualizarTopico(id, datos);
+    }
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void eliminarTopico(@PathVariable Long id){
+        topicoservicio.eliminarTopico(id);
     }
 }
